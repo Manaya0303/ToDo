@@ -20,9 +20,10 @@
 		
 			<table class="todo-list">
 				<tr>
-					<th>タイトル</th><th>内容</th><th>メモ</th><th>リミット</th><th>場所</th><th>登録日</th>
+					<th>ユーザーID</th><th>タイトル</th><th>内容</th><th>メモ</th><th>リミット</th><th>場所</th><th>登録日</th>
 				</tr>
 				<tr th:each="todo : ${todolist}">
+						<td th:text="${todo.userId}"></td>
 						<td th:text="${todo.title}"></td>
 						<td th:text="${todo.content}"></td>
 						<td th:text="${todo.notes}"></td>
@@ -37,6 +38,13 @@
 		<br>
 		<br>
 		<a th:href="@{/regist-todo}">ToDoを登録</a>
+		
+	<div th:if="${todolist} != null">
+		<br>
+		<br>
+		<a th:href="@{/todo-top}">トップページに戻る</a>
+	</div>
+
 	
 </body>
 </html>
