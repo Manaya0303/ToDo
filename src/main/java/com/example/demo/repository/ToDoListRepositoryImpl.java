@@ -20,6 +20,21 @@ public class ToDoListRepositoryImpl implements ToDoListRepository {
 	private final JdbcTemplate jdbcTemplate;
 	
 	@Override
+	public void add(ToDoList todolist) {
+		
+		String sql = 
+				"INSERT INTO todo_list" +
+				"(user_id, title, content, notes, limit_date, place)" +
+				"VALUES (?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sql, todolist.getUserId(),
+								 todolist.getTitle(),
+								 todolist.getContent(),
+								 todolist.getNotes(),
+								 todolist.getLimitDate(),
+								 todolist.getPlace()         );
+	}
+	
+	@Override
 	public List<ToDoList> selectByUserId(String userId) {
 		
 		String sql =
