@@ -16,4 +16,5 @@ public class ToDoList {
 	private Date limitDate;
 	private String place;
 	private Timestamp registDate;
+	private boolean status;
 }

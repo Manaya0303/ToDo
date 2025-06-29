@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.entity.ToDoList;
@@ -17,8 +19,15 @@ import lombok.RequiredArgsConstructor;
 public class RegistToDoController {
 	
 	private final ToDoRegistService service;
-
+	
 	@GetMapping("/regist-todo")
+	public String ShowRegistForm(Model model) {
+		model.addAttribute("toDoRegistForm", new ToDoRegistForm());
+		
+		return "regist-todo";
+	}
+
+	@PostMapping("/regist-todo")
 	public String RegistToDoTop(
 			@Validated ToDoRegistForm form,
 			BindingResult result,

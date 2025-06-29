@@ -46,7 +46,8 @@ public class ToDoListRepositoryImpl implements ToDoListRepository {
 				"	notes,                  " +
 				"	limit_date,             " +
 				"	place,                  " +
-				"	regist_date             " +
+				"	regist_date,            " +
+				"	status                  " +
 				"FROM                       " +
 				"	todo_list               " +
 				"WHERE                      " +
@@ -71,6 +72,7 @@ public class ToDoListRepositoryImpl implements ToDoListRepository {
 			todo.setLimitDate((Date)one.get("limit_date"));
 			todo.setPlace((String)one.get("place"));
 			todo.setRegistDate((Timestamp)one.get("regist_date"));
+			todo.setStatus((boolean)one.get("status"));
 			result.add(todo);
 			
 		}
