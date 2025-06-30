@@ -10,7 +10,8 @@ import com.example.demo.form.ToDoFinishForm;
 public class FinishController {
 
 	@PostMapping("/finish-todo")
-	public String FinishToDo(@ModelAttribute ToDoFinishForm form) {
+	public String finishToDo(@ModelAttribute ToDoFinishForm form) {
 		return "finish-todo";
 	}
+	
 }
