@@ -1,6 +1,5 @@
 package com.example.demo.repository;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +68,7 @@ public class ToDoListRepositoryImpl implements ToDoListRepository {
 			todo.setTitle((String)one.get("title"));
 			todo.setContent((String)one.get("content"));
 			todo.setNotes((String)one.get("notes"));
-			todo.setLimitDate((Date)one.get("limit_date"));
+			todo.setLimitDate(((java.sql.Date) one.get("limit_date")).toLocalDate());
 			todo.setPlace((String)one.get("place"));
 			todo.setRegistDate((Timestamp)one.get("regist_date"));
 			todo.setStatus((boolean)one.get("status"));

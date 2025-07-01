@@ -1,7 +1,7 @@
 package com.example.demo.entity;
 
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ public class ToDoList {
 	private String title;
 	private String content;
 	private String notes;
-	private Date limitDate;
+	private LocalDate limitDate;
 	private String place;
 	private Timestamp registDate;
 	private boolean status;

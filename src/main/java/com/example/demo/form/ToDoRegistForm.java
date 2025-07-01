@@ -1,6 +1,6 @@
 package com.example.demo.form;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
@@ -26,7 +26,7 @@ public class ToDoRegistForm {
 	private String notes;
 	
 	@FutureOrPresent
-	private Date limitDate;
+	private LocalDate limitDate;
 	
 	@Size(min=0, max=16, message="16文字以内で入力してください")
 	private String place;
