@@ -10,6 +10,8 @@ import lombok.Data;
 
 @Data
 public class ToDoEditForm {
+	@NotNull(message="入力してください")
+	private int contentId;
 
 	@NotNull(message="入力してください")
 	private String UserId;
