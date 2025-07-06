@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,19 +18,14 @@ public class ToDoEditController {
 	
 	private final ToDoEditService service;
 	
-	@GetMapping("/todo-edit")
-	public String showEditToDo() {
-		return "todo-edit";
-	}
-
-	@PostMapping("/todo-edit")
+	@PostMapping("/edit-todo")
 	public String editToDo(
 			@Validated ToDoEditForm form,
 			BindingResult result,
 			RedirectAttributes redirectAttributes) {
 		
 		if(result.hasErrors()) {
-			return "todo-edit";
+			return "edit-todo";
 		}
 		
 		ToDoList todo = new ToDoList();
@@ -43,6 +37,13 @@ public class ToDoEditController {
 		todo.setPlace(form.getPlace());
 		
 		service.edit(todo);
+		
+		return "edit-todo";
+	}
+		
+	@PostMapping("/complete-edit-todo")
+	public String completeEditToDo(
+			RedirectAttributes redirectAttributes) {
 		
 		redirectAttributes.addFlashAttribute("msg","ToDo編集");
 		

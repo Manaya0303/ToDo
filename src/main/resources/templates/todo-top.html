@@ -24,6 +24,16 @@
 				</tr>
 				<tr th:each="todo : ${todolist}" th:if="${!todo.status}">
 					<td>
+						<form th:action="@{/edit-todo}" method="POST">
+							<input type="hidden" name="contentId" th:value="${todo.contentId}">
+							<input type="hidden" name="userId" th:value="${todo.userId}">
+							<input type="hidden" name="title" th:value="${todo.title}">
+							<input type="hidden" name="content" th:value="${todo.content}">
+							<input type="hidden" name="notes" th:value="${todo.notes}">
+							<input type="hidden" name="limitDate" th:value="${todo.limitDate}">
+							<input type="hidden" name="place" th:value="${todo.place}">
+							<input type="submit" value="編集" class="btn">
+						</form>
 						<form th:action="@{/finish-todo}" method="POST">
 							<input type="hidden" name="contentId" th:value="${todo.contentId}">
 							<input type="submit" value="完了" class="btn">

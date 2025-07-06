@@ -24,14 +24,17 @@ public class ToDoEditRepositoryImpl implements ToDoEditRepository {
 				"	content = ?,       " +
 				"	notes = ?,         " +
 				"	limit_date = ?,    " +
-				"	place = ?          ";
+				"	place = ?          " +
+				"WHERE                 " +
+				"	content_id = ?     ";
 		
 		jdbcTemplate.update(sql,
 				todolist.getTitle(),
 				todolist.getContent(),
 				todolist.getNotes(),
 				todolist.getLimitDate(),
-				todolist.getPlace()     );
+				todolist.getPlace(),
+				todolist.getContentId());
 
 	}
 

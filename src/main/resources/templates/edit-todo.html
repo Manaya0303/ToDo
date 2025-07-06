@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>編集TOP</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	
+	<h2>ToDo編集</h2>
+	
+	<form th:action="@{/edit-todo}" method="POST"
+			th:object="${toDoEditForm}">
+		ToDoID<br>
+		<p th:text="*{contentId}"></p>
+		<input type="hidden" th:field="*{contentId}"><br>
+		<div th:if="${#fields.hasErrors('contentId')}" th:errors="*{contentId}" class="error-msg"></div>
+		<br>
+		ユーザーID<br>
+		<p th:text="*{userId}"></p>
+		<input type="hidden" th:field="*{userId}"><br>
+		<div th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" class="error-msg"></div>
+		<br>
+		タイトル<br>
+		<input type="text" th:field="*{title}"><br>
+		<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error-msg"></div>
+		<br>
+		本文<br>
+		<input type="text" th:field="*{content}"><br>
+		<div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error-msg"></div>
+		<br>
+		メモ<br>
+		<input type="text" th:field="*{notes}"><br>
+		<div th:if="${#fields.hasErrors('notes')}" th:errors="*{notes}" class="error-msg"></div>
+		<br>
+		リミット<br>
+		<input type="date" th:field="*{limitDate}"><br>
+		<div th:if="${#fields.hasErrors('limitDate')}" th:errors="*{limitDate}" class="error-msg"></div>
+		<br>
+		場所<br>
+		<input type="text" th:field="*{place}"><br>
+		<div th:if="${#fields.hasErrors('place')}" th:errors="*{place}" class="error-msg"></div>
+		<br>
+	</form>
+	<form th:action="@{/complete-edit-todo}" method="POST">
+		<input type="button" value="更新" class="btn">
+	</form>
+	
+	<br>
+	<a th:href="@{/todo-top}">ToDoトップ</a>
+
+</body>
+</html>
